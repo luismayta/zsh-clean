@@ -7,104 +7,122 @@
 # Authors:
 #   Luis Mayta <slovacus@gmail.com>
 #
+CLEAN_PATH_ROOT=$(dirname "${0}":A)
 
-LIGHT_GREEN='\033[1;32m'
-CLEAR='\033[0m'
+# shellcheck source=/dev/null
+source "${CLEAN_PATH_ROOT}"/src/helpers/messages.zsh
+
+# shellcheck source=/dev/null
+source "${CLEAN_PATH_ROOT}"/src/helpers/tools.zsh
+
 
 function cleanup::system_trash {
-    echo -e "${CLEAR}${LIGHT_GREEN}Empty the Trash on all mounted volumes and the main HDD...${CLEAR}"
+    message_info "Empty the Trash on all mounted volumes and the main HDD..."
     local volume_trashs="/Volumes/*/.Trashes/*"
     local trashs="${HOME}/.Trash/*"
     [[ -e "${volume_trashs}" ]] && rm -rfv "${volume_trashs}" > /dev/null 2>&1
     [[ -e "${trashs}" ]] && rm -rfv "${trashs}" > /dev/null 2>&1
+    message_success "Empty the Trash on all mounted volumes and the main HDD..."
 }
 
 function cleanup::system_logs {
-    echo -e "${CLEAR}${LIGHT_GREEN}Clear System Log Files...${CLEAR}"
+    message_info "Clear System Log Files..."
     local mail_logs="${HOME}/Library/Containers/com.apple.mail/Data/Library/Logs/Mail/"
     local core_simulator="${HOME}/Library/Logs/CoreSimulator/*"
     [[ -e "${mail_logs}" ]] && rm -rfv "${mail_logs}" > /dev/null 2>&1
     [[ -e "${core_simulator}" ]] && rm -rfv "${core_simulator}" > /dev/null 2>&1
+    message_success "Clear System Log Files..."
 }
 
 function cleanup::adobe_cache {
-    echo -e "${CLEAR}${LIGHT_GREEN}Clear Adobe Cache Files...${CLEAR}"
+    message_info "Clear Adobe Cache Files..."
     local adobe_cache="${HOME}/Library/Application\ Support/Adobe/Common/Media\ Cache\ Files/*"
     [[ -e "${adobe_cache}" ]] && rm -rfv "${adobe_cache}" > /dev/null 2>&1
+    message_success "Clear Adobe Cache Files..."
 }
 
 function cleanup::ios_application {
-    echo -e "${CLEAR}${LIGHT_GREEN}Cleanup iOS Applications...${CLEAR}"
+    message_info "Cleanup iOS Applications..."
     local itunes_applications="${HOME}/Music/iTunes/iTunes\ Media/Mobile\ Applications/*"
     [[ -e "${itunes_applications}" ]] && rm -rfv "${itunes_applications}" > /dev/null 2>&1
+    message_success "Cleanup iOS Applications..."
 }
 
 function cleanup::ios_device_backup {
-    echo -e "${CLEAR}${LIGHT_GREEN}Remove iOS Device Backups...${CLEAR}"
+    message_info "Remove iOS Device Backups..."
     local mobile_backup="${HOME}/Library/Application\ Support/MobileSync/Backup/*"
     [[ -e "${mobile_backup}" ]] && rm -rfv "${mobile_backup}" > /dev/null 2>&1
+    message_success "Remove iOS Device Backups..."
 }
 
 function cleanup::xcode {
-    echo -e "${CLEAR}${LIGHT_GREEN}Cleanup XCode Derived Data and Archives...${CLEAR}"
+    message_info "Cleanup XCode Derived Data and Archives..."
     local xcode_data="${HOME}/Library/Developer/Xcode/DerivedData/*"
     local xcode_archive="${HOME}/Library/Developer/Xcode/Archives/*"
     [[ -e "${xcode_data}" ]] && rm -rfv "${xcode_data}" > /dev/null 2>&1
     [[ -e "${xcode_archive}" ]] && rm -rfv "${xcode_archive}" > /dev/null 2>&1
+    message_success "Cleanup XCode Derived Data and Archives..."
 }
 
 function cleanup::pip {
-    echo -e "${CLEAR}${LIGHT_GREEN}Cleanup pip cache...${CLEAR}"
+    message_info "Cleanup pip cache..."
     local pip_cache="${HOME}/Library/Caches/pip"
     [[ -e "${pip_cache}" ]] && rm -rfv "${pip_cache}" > /dev/null 2>&1
+    message_success "Cleanup pip cache..."
 }
 
 function cleanup::gem {
     if type "gem" &> /dev/null; then
-        echo -e "${CLEAR}${LIGHT_GREEN}Cleanup any old versions of gems...${CLEAR}"
+        message_info "Cleanup any old versions of gems..."
         gem cleanup > /dev/null 2>&1
+        message_success "Cleanup any old versions of gems..."
     fi
 }
 
 function cleanup::docker {
     if type "docker" &> /dev/null; then
-        echo -e "${CLEAR}${LIGHT_GREEN}Cleanup Docker...${CLEAR}"
+        message_info "Cleanup Docker..."
         docker system prune -af
+        message_success "Cleanup Docker..."
     fi
 }
 
 function cleanup::pyenv {
     if [ "$PYENV_VIRTUALENV_CACHE_PATH" ]; then
-        echo -e "${CLEAR}${LIGHT_GREEN}Removing Pyenv-VirtualEnv Cache...${CLEAR}"
+        message_info "Removing Pyenv-VirtualEnv Cache..."
         [[ -e "${PYENV_VIRTUALENV_CACHE_PATH}" ]] && rm -rfv "${PYENV_VIRTUALENV_CACHE_PATH}" > /dev/null 2>&1
+        message_success "Removing Pyenv-VirtualEnv Cache..."
     fi
 }
 
 function cleanup::npm {
     if type "npm" &> /dev/null; then
-        echo -e "${CLEAR}${LIGHT_GREEN}Cleanup npm cache...${CLEAR}"
+        message_info "Cleanup npm cache..."
         npm cache clean --force
+        message_success "Cleanup npm cache..."
     fi
 }
 
 function cleanup::yarn {
     if type "yarn" &> /dev/null; then
-        echo -e "${CLEAR}${LIGHT_GREEN}Cleanup Yarn Cache...${CLEAR}"
+        message_info "Cleanup Yarn Cache..."
         yarn cache clean --force
+        message_success "Cleanup Yarn Cache..."
     fi
 }
 
 function cleanup::brew {
     if type "brew" &>/dev/null; then
-        echo -e "${CLEAR}${LIGHT_GREEN}Homebrew Cache...${CLEAR}"
+        message_info "Homebrew Cache..."
         brew cleanup -s > /dev/null 2>&1
         rm -rfv "$(brew --cache)" > /dev/null 2>&1
         brew tap --repair > /dev/null 2>&1
+        message_success "Homebrew Cache..."
     fi
 }
 
 function cleanup::unnecesary {
-    echo -e "${CLEAR}${LIGHT_GREEN}Clean files unnecesary${CLEAR}"
+    message_info "Clean files unnecesary"
     find . \
          -name '.DS_Store' -delete -print -o \
          -name '*.pyc' -delete -print -o \
@@ -123,10 +141,11 @@ function cleanup::unnecesary {
          -name 'env.back' -type d -print -exec rm -rf {} + -o \
          -name 'venv.back' -type d -print -exec rm -rf {} + -o \
          -name 'coverage' -type d -print -exec rm -rf {} +
+    message_success "Clean files unnecesary"
 }
 
 function cleanup {
-    echo -e "${CLEAR}${LIGHT_GREEN}Clean files generated${CLEAR}"
+    message_info "Clean files generated"
     find . \
          -name 'node_modules' -type d -print -exec rm -rf {} + -o \
          -name 'jspm_packages' -type d -print -exec rm -rf {} + -o \
@@ -152,11 +171,13 @@ function cleanup {
          -name '.terraform' -type d -print -exec rm -rf {} + -o \
          -name 'coverage' -type d -print -exec rm -rf {} +
 
+    message_success "Clean files generated"
+
     cleanup::unnecesary
 }
 
 function cleanup::all {
-    echo -e "${CLEAR}${LIGHT_GREEN}Clean all files${CLEAR}"
+    message_info "Clean all files"
     cleanup::unnecesary
     cleanup::system_trash
     cleanup::system_logs
@@ -171,5 +192,5 @@ function cleanup::all {
     cleanup::npm
     cleanup::yarn
     cleanup::brew
-    echo -e "${CLEAR}${LIGHT_GREEN}Finish all files${CLEAR}"
+    message_success "Finish all files"
 }
