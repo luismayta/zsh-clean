@@ -1,9 +1,6 @@
 zsh-clean
 =========
 
-Build
------
-
 |Build Status| |GitHub issues| |GitHub license|
 
 :Version: 0.0.0
@@ -23,7 +20,11 @@ Features
 Dependencies
 ------------
 
-List of applications:
+.. code-block:: bash
+
+    https://github.com/mafredri/zsh-async
+    https://github.com/marzocchi/zsh-notify
+    https://github.com/luismayta/zsh-functions
 
 Installation
 ------------
@@ -63,8 +64,13 @@ install this plugin by doing the following:
 If you're using `Antigen <https://github.com/getantibody/antibody>`__,
 install this plugin by doing the following:
 
-1. Add ``antibody bundle luismayta/zsh-clean`` to your
-   ``.zshrc`` where you're adding your other plugins.
+1. Add :
+
+    .. code-block:: bash
+
+        antibody bundle luismayta/zsh-clean
+
+    to your ``.zshrc`` where you're adding your other plugins.
 2. Either open a new terminal to force zsh to load the new plugin, or
    run ``antibody bundle luismayta/zsh-clean`` in a
    running zsh session.
@@ -141,7 +147,7 @@ Feel free to contact me to discuss any issues, questions, or comments.
 Made with :coffee: and :pizza: by `luis mayta`_ and `hadenlabs`_.
 
 .. Links
-.. _`changelog`: docs/source/CHANGELOG.rst
+.. _`changelog`: CHANGELOG.rst
 .. _`contributors`: AUTHORS
 .. _`contributing`: docs/source/CONTRIBUTING.rst
 
@@ -171,8 +177,8 @@ Made with :coffee: and :pizza: by `luis mayta`_ and `hadenlabs`_.
 .. Footer:
 .. |linkedin| image:: http://www.linkedin.com/img/webpromo/btn_liprofile_blue_80x15.png
    :target: http://pe.linkedin.com/in/luismayta
-.. |beacon| image:: https://ga-beacon.appspot.com/UA-65019326-1/github.com/hadenlabs/zsh-clean/readme
-   :target: https://github.com/hadenlabs/zsh-clean
+.. |beacon| image:: https://ga-beacon.appspot.com/UA-65019326-1/github.com/luismayta/zsh-clean/readme
+   :target: https://github.com/luismayta/zsh-clean
 .. |made| image:: https://img.shields.io/badge/Made%20with-Zsh-1f425f.svg
    :target: http://www.zsh.org
 
@@ -180,4 +186,3 @@ Made with :coffee: and :pizza: by `luis mayta`_ and `hadenlabs`_.
 
 .. _Pyenv: https://github.com/pyenv/pyenv
 .. _Docker: https://www.docker.com/
-.. _Docker Compose: https://docs.docker.com/compose/
