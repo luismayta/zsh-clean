@@ -1,6 +1,6 @@
 version = '0.0.0'
 
-[[files."docs/source/CHANGELOG.rst"]]
+[[files."CHANGELOG.rst"]]
 search = """
 `Unreleased`_
 +++++++++++++
@@ -15,7 +15,7 @@ replace = """
 ++++++++++++++++++++++
 """
 
-[[files."docs/source/CHANGELOG.rst"]]
+[[files."CHANGELOG.rst"]]
 search = """
 .. _`Unreleased`: https://github.com/luismayta/zsh-clean/compare/{{old_version}}...HEAD
 """
