@@ -90,8 +90,17 @@ function cleanup::docker {
 function cleanup::pyenv {
     if [ "$PYENV_VIRTUALENV_CACHE_PATH" ]; then
         message_info "Removing Pyenv-VirtualEnv Cache..."
-        [[ -e "${PYENV_VIRTUALENV_CACHE_PATH}" ]] && rm -rfv "${PYENV_VIRTUALENV_CACHE_PATH}" > /dev/null 2>&1
+        [ -e "${PYENV_VIRTUALENV_CACHE_PATH}" ] && rm -rfv "${PYENV_VIRTUALENV_CACHE_PATH}" > /dev/null 2>&1
         message_success "Removing Pyenv-VirtualEnv Cache..."
+    fi
+}
+
+function cleanup::pyenv::virtualenvs {
+    [ -e "${HOME}/.local/share/virtualenvs" ] && export PYENV_VIRTUALENV_PATH="${HOME}/.local/share/virtualenvs"
+    if [ -n "$PYENV_VIRTUALENV_PATH" ]; then
+        message_info "Removing pyenv virtualenvs..."
+        rm -rfv "${PYENV_VIRTUALENV_PATH}" > /dev/null 2>&1
+        message_success "Removing Pyenv-VirtualEnv..."
     fi
 }
 
