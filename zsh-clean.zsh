@@ -199,6 +199,7 @@ function cleanup::all {
     cleanup::gem
     cleanup::docker
     cleanup::pyenv
+    cleanup::pyenv::virtualenvs
     cleanup::npm
     cleanup::yarn
     cleanup::brew
