@@ -169,6 +169,7 @@ function cleanup {
          -name 'env.back' -type d -print -exec rm -rf {} + -o \
          -name 'venv.back' -type d -print -exec rm -rf {} + -o \
          -name '.terraform' -type d -print -exec rm -rf {} + -o \
+         -name '.next' -type d -print -exec rm -rf {} + -o \
          -name 'coverage' -type d -print -exec rm -rf {} +
 
     message_success "Clean files generated"
