@@ -87,6 +87,15 @@ function cleanup::docker {
     fi
 }
 
+function cleanup::pre_commit {
+    [ -e "${HOME}/.cache/pre-commit" ] && export PRE_COMMIT_PATH="${HOME}/.cache/pre-commit"
+    if [ -n "$PRE_COMMIT_PATH" ]; then
+        message_info "Removing pre_commit ..."
+        rm -rfv "${PRE_COMMIT_PATH}" > /dev/null 2>&1
+        message_success "Removing pre_commit..."
+    fi
+}
+
 function cleanup::pyenv {
     if [ "$PYENV_VIRTUALENV_CACHE_PATH" ]; then
         message_info "Removing Pyenv-VirtualEnv Cache..."
@@ -198,6 +207,7 @@ function cleanup::all {
     cleanup::pip
     cleanup::gem
     cleanup::docker
+    cleanup::pre_commit
     cleanup::pyenv
     cleanup::pyenv::virtualenvs
     cleanup::npm
