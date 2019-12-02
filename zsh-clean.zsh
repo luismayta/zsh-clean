@@ -16,7 +16,7 @@ source "${CLEAN_PATH_ROOT}"/src/helpers/messages.zsh
 source "${CLEAN_PATH_ROOT}"/src/helpers/tools.zsh
 
 
-function cleanup::system_trash {
+function cleanup::system::trash {
     message_info "Empty the Trash on all mounted volumes and the main HDD..."
     local volume_trashs="/Volumes/*/.Trashes/*"
     local trashs="${HOME}/.Trash/*"
@@ -25,7 +25,7 @@ function cleanup::system_trash {
     message_success "Empty the Trash on all mounted volumes and the main HDD..."
 }
 
-function cleanup::system_logs {
+function cleanup::system::logs {
     message_info "Clear System Log Files..."
     local mail_logs="${HOME}/Library/Containers/com.apple.mail/Data/Library/Logs/Mail/"
     local core_simulator="${HOME}/Library/Logs/CoreSimulator/*"
@@ -189,8 +189,8 @@ function cleanup {
 function cleanup::all {
     message_info "Clean all files"
     cleanup::unnecesary
-    cleanup::system_trash
-    cleanup::system_logs
+    cleanup::system::trash
+    cleanup::system::logs
     cleanup::adobe_cache
     cleanup::ios_application
     cleanup::ios_device_backup
