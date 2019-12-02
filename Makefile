@@ -73,7 +73,7 @@ setup:
 	$(PIPENV_INSTALL) --dev --skip-lock
 	$(PIPENV_RUN) pre-commit install
 	$(PIPENV_RUN) pre-commit install -t pre-push
-		@cp -rf provision/git/hooks/prepare-commit-msg .git/hooks/
+	@cp -rf provision/git/hooks/prepare-commit-msg .git/hooks/
 	@[[ -e ".env" ]] || cp -rf .env.example .env
 	@echo ${MESSAGE_HAPPY}
 
