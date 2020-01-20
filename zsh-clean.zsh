@@ -188,7 +188,15 @@ function cleanup {
          -name 'venv.back' -type d -print -exec rm -rf {} + -o \
          -name '.terraform' -type d -print -exec rm -rf {} + -o \
          -name '.next' -type d -print -exec rm -rf {} + -o \
+         -name '.nuxt' -type d -print -exec rm -rf {} + -o \
          -name '.cache' -type d -print -exec rm -rf {} + -o \
+         -name '.grunt' -type d -print -exec rm -rf {} + -o \
+
+         -name '.vuepress/dist' -type d -print -exec rm -rf {} + -o \
+         -name '.serverless' -type d -print -exec rm -rf {} + -o \
+         -name '.fusebox' -type d -print -exec rm -rf {} + -o \
+         -name '.dynamodb' -type d -print -exec rm -rf {} + -o \
+         -name 'bower_components' -type d -print -exec rm -rf {} + -o \
          -name 'coverage' -type d -print -exec rm -rf {} +
 
     message_success "Clean files generated"
