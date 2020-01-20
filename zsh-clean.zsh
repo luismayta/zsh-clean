@@ -72,7 +72,7 @@ function cleanup::pip {
 }
 
 function cleanup::gem {
-    if type "gem" &> /dev/null; then
+    if type gem > /dev/null; then
         message_info "Cleanup any old versions of gems..."
         gem cleanup > /dev/null 2>&1
         message_success "Cleanup any old versions of gems..."
@@ -80,7 +80,7 @@ function cleanup::gem {
 }
 
 function cleanup::docker {
-    if type "docker" &> /dev/null; then
+    if type docker > /dev/null; then
         message_info "Cleanup Docker..."
         docker system prune -af
         message_success "Cleanup Docker..."
@@ -89,7 +89,7 @@ function cleanup::docker {
 
 function cleanup::pre_commit {
     [ -e "${HOME}/.cache/pre-commit" ] && export PRE_COMMIT_PATH="${HOME}/.cache/pre-commit"
-    if [ -n "$PRE_COMMIT_PATH" ]; then
+    if [ -n "${PRE_COMMIT_PATH}" ]; then
         message_info "Removing pre_commit ..."
         rm -rfv "${PRE_COMMIT_PATH}" > /dev/null 2>&1
         message_success "Removing pre_commit..."
@@ -97,7 +97,7 @@ function cleanup::pre_commit {
 }
 
 function cleanup::pyenv {
-    if [ "$PYENV_VIRTUALENV_CACHE_PATH" ]; then
+    if [ "${PYENV_VIRTUALENV_CACHE_PATH}" ]; then
         message_info "Removing Pyenv-VirtualEnv Cache..."
         [ -e "${PYENV_VIRTUALENV_CACHE_PATH}" ] && rm -rfv "${PYENV_VIRTUALENV_CACHE_PATH}" > /dev/null 2>&1
         message_success "Removing Pyenv-VirtualEnv Cache..."
@@ -106,7 +106,7 @@ function cleanup::pyenv {
 
 function cleanup::pyenv::virtualenvs {
     [ -e "${HOME}/.local/share/virtualenvs" ] && export PYENV_VIRTUALENV_PATH="${HOME}/.local/share/virtualenvs"
-    if [ -n "$PYENV_VIRTUALENV_PATH" ]; then
+    if [ -n "${PYENV_VIRTUALENV_PATH}" ]; then
         message_info "Removing pyenv virtualenvs..."
         rm -rfv "${PYENV_VIRTUALENV_PATH}" > /dev/null 2>&1
         message_success "Removing Pyenv-VirtualEnv..."
@@ -114,7 +114,7 @@ function cleanup::pyenv::virtualenvs {
 }
 
 function cleanup::npm {
-    if type "npm" &> /dev/null; then
+    if type npm > /dev/null; then
         message_info "Cleanup npm cache..."
         npm cache clean --force
         message_success "Cleanup npm cache..."
@@ -122,7 +122,7 @@ function cleanup::npm {
 }
 
 function cleanup::yarn {
-    if type "yarn" &> /dev/null; then
+    if type yarn > /dev/null; then
         message_info "Cleanup Yarn Cache..."
         yarn cache clean --force
         message_success "Cleanup Yarn Cache..."
@@ -130,7 +130,7 @@ function cleanup::yarn {
 }
 
 function cleanup::brew {
-    if type "brew" &>/dev/null; then
+    if type brew > /dev/null; then
         message_info "Homebrew Cache..."
         brew cleanup -s > /dev/null 2>&1
         rm -rfv "$(brew --cache)" > /dev/null 2>&1
@@ -188,6 +188,7 @@ function cleanup {
          -name 'venv.back' -type d -print -exec rm -rf {} + -o \
          -name '.terraform' -type d -print -exec rm -rf {} + -o \
          -name '.next' -type d -print -exec rm -rf {} + -o \
+         -name '.cache' -type d -print -exec rm -rf {} + -o \
          -name 'coverage' -type d -print -exec rm -rf {} +
 
     message_success "Clean files generated"
