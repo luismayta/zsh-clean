@@ -192,7 +192,6 @@ function cleanup {
          -name '.cache' -type d -print -exec rm -rf {} + -o \
          -name '.grunt' -type d -print -exec rm -rf {} + -o \
          -name '.vuepress/dist' -type d -print -exec rm -rf {} + -o \
-         -name '.serverless' -type d -print -exec rm -rf {} + -o \
          -name '.fusebox' -type d -print -exec rm -rf {} + -o \
          -name '.dynamodb' -type d -print -exec rm -rf {} + -o \
          -name 'bower_components' -type d -print -exec rm -rf {} + -o \
