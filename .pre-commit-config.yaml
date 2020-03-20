@@ -33,10 +33,6 @@ repos:
     hooks:
       - id: rst-linter
         exclude: (docs/*|tests/*)
-  - repo: https://github.com/pricematch/pricematch-pre-commit-hooks
-    rev: 93f5296d960021ee1f507a59a0bca1fe8f73c285
-    hooks:
-      - id: do_not_commit
   - repo: https://github.com/pre-commit/mirrors-pylint
     rev: v2.4.4
     hooks:
@@ -55,11 +51,15 @@ repos:
     hooks:
       - id: flake8
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v0.750
+    rev: v0.740
     hooks:
       - id: mypy
         args:
           - --ignore-missing-imports
+  - repo: https://github.com/tcassou/python-pre-commit-hooks
+    rev: 3383e2f83463370cf4651040fb697a636bb0374e
+    hooks:
+      - id: do_not_commit
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v2.4.0
     hooks:
@@ -76,16 +76,13 @@ repos:
       - id: check-json
       - id: check-xml
       - id: check-yaml
-      - id: check-case-conflict
       - id: check-byte-order-marker
       - id: check-ast
       - id: debug-statements
       - id: check-docstring-first
-      - id: detect-aws-credentials
       - id: requirements-txt-fixer
       - id: check-symlinks
       - id: name-tests-test
-        exclude: (src/tests/steps/*)
         args:
           - --django
       - id: file-contents-sorter
@@ -109,3 +106,4 @@ repos:
     rev: 1.19.1 # Use the sha or tag you want to point at
     hooks:
       - id: prettier
+        exclude: lib|node_modules
