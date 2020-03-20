@@ -10,10 +10,7 @@
 CLEAN_PATH_ROOT=$(dirname "${0}":A)
 
 # shellcheck source=/dev/null
-source "${CLEAN_PATH_ROOT}"/src/helpers/messages.zsh
-
-# shellcheck source=/dev/null
-source "${CLEAN_PATH_ROOT}"/src/helpers/tools.zsh
+source "${CLEAN_PATH_ROOT}"/src/base.zsh
 
 
 function cleanup::system::trash {
