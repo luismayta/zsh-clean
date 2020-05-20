@@ -71,7 +71,7 @@ Run all unit tests
 
 .. code-block:: bash
 
-    make test.all
+   make test.all
 
 Run unit tests specified
 
