@@ -159,6 +159,16 @@ function cleanup::unnecesary {
     message_success "Clean files unnecesary"
 }
 
+# clean files and path
+function cleanup::terraform {
+    message_info "Clean files generated"
+    find . \
+         -name '.terraform' -type d -print -exec rm -rf {} +
+
+    message_success "Clean files unnecesary"
+}
+
+
 function cleanup {
     message_info "Clean files generated"
     find . \
@@ -202,6 +212,8 @@ function cleanup {
 function cleanup::all {
     message_info "Clean all files"
     cleanup::unnecesary
+    cleanup::yarn
+    cleanup::brew
     cleanup::system::trash
     cleanup::system::logs
     cleanup::adobe_cache
@@ -215,7 +227,6 @@ function cleanup::all {
     cleanup::pyenv
     cleanup::pyenv::virtualenvs
     cleanup::npm
-    cleanup::yarn
-    cleanup::brew
+    cleanup::terraform
     message_success "Finish all files"
 }
