@@ -3,6 +3,8 @@ zsh-clean
 
 |Build Status| |GitHub issues| |GitHub license|
 
+zsh tools for clean
+
 :Version: 0.0.0
 :Web: https://github.com/luismayta/zsh-clean
 :Download: https://github.com/luismayta/zsh-clean
@@ -25,7 +27,6 @@ Dependencies
     https://github.com/mafredri/zsh-async
     https://github.com/luismayta/zsh-notify
     https://github.com/luismayta/zsh-functions
-
 
 Installation
 ------------
@@ -145,7 +146,7 @@ Feel free to contact me to discuss any issues, questions, or comments.
 
 |linkedin| |beacon| |made|
 
-Made with :coffee: and :pizza: by `luis mayta`_ and `equipindustry`_.
+Made with :coffee: and :pizza: by `Luis Mayta`_ and `equipindustry`_.
 
 .. Links
 .. _`changelog`: CHANGELOG.rst
@@ -153,11 +154,11 @@ Made with :coffee: and :pizza: by `luis mayta`_ and `equipindustry`_.
 .. _`contributing`: docs/source/CONTRIBUTING.rst
 
 .. _`equipindustry`: https://github.com/equipindustry
-.. _`luis mayta`: https://github.com/luismayta
+.. _`Luis Mayta`: https://github.com/luismayta
 
 
 .. _`Github`: https://github.com/luismayta
-.. _`Linkedin`: https://www.linkedin.com/in/luismayta
+.. _`Linkedin`: https://pe.linkedin.com/in/luismayta
 .. _`Email`: slovacus@gmail.com
     :target: mailto:slovacus@gmail.com
 .. _`Twitter`: https://twitter.com/slovacus
@@ -169,15 +170,15 @@ Made with :coffee: and :pizza: by `luis mayta`_ and `equipindustry`_.
 .. |GitHub issues| image:: https://img.shields.io/github/issues/luismayta/zsh-clean.svg
    :target: https://github.com/luismayta/zsh-clean/issues
 .. |GitHub license| image:: https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square
-    :target: LICENSE
+   :target: LICENSE
 
 .. Team:
 .. |Luis Mayta| image:: https://github.com/luismayta.png?size=100
-    :target: https://github.com/luismayta
+   :target: https://github.com/luismayta
 
 .. Footer:
 .. |linkedin| image:: http://www.linkedin.com/img/webpromo/btn_liprofile_blue_80x15.png
-   :target: http://pe.linkedin.com/in/luismayta
+   :target: https://pe.linkedin.com/in/luismayta
 .. |beacon| image:: https://ga-beacon.appspot.com/UA-65019326-1/github.com/luismayta/zsh-clean/readme
    :target: https://github.com/luismayta/zsh-clean
 .. |made| image:: https://img.shields.io/badge/Made%20with-Zsh-1f425f.svg
