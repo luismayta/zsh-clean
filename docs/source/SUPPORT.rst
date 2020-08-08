@@ -6,7 +6,7 @@ If you have any problems with starting zsh-clean, please report it on GitHub: ht
 
 
 Who is behind zsh-clean
------------------------
+----------------------
 
 **Organisation**:
 
