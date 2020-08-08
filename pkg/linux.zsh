@@ -24,5 +24,6 @@ function cleanup::all {
     cleanup::pyenv::virtualenvs
     cleanup::npm
     cleanup::terraform
+    cleanup::projects
     message_success "Finish all files"
 }
