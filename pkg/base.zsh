@@ -108,7 +108,6 @@ function cleanup::terraform {
     message_success "Clean files unnecesary"
 }
 
-
 function cleanup {
     message_info "Clean files generated"
     find . \
@@ -147,4 +146,16 @@ function cleanup {
     message_success "Clean files generated"
 
     cleanup::unnecesary
+}
+
+# clean files and path
+function cleanup::projects {
+    if [ -z "${PROJECTS}" ]; then
+        message_warning "The path PROJECTS is not defined as an environment variable."
+        return
+    fi
+    message_info "Clean files of ${PROJECTS}"
+    cd "${ROJECTS}" || return && cleanup || cd - || return
+
+    message_success "Clean files unnecesary"
 }
