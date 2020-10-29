@@ -1,9 +1,9 @@
 zsh-clean
 =========
 
-|Build Status| |GitHub issues| |GitHub license|
-
 zsh tools for clean
+
+|Build Status| |GitHub issues| |GitHub license|
 
 :Version: 0.0.0
 :Web: https://github.com/luismayta/zsh-clean
@@ -80,12 +80,12 @@ install this plugin by doing the following:
 3. Enjoy!
 
 Quick Start
-===========
+-----------
 
 - Fork this repository
 
 Usage
------
+^^^^^
 
 - Install dependences
 
