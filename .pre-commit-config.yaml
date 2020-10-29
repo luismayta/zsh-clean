@@ -93,12 +93,6 @@ repos:
     hooks:
       - id: terraform_fmt
       - id: terraform_docs
-  - repo: https://github.com/prettier/prettier
-    rev: 2.0.5 # Use the sha or tag you want to point at
-    hooks:
-      - id: prettier
-        args: [--config=prettier.config.js]
-        exclude: lib|node_modules
   - repo: https://github.com/shellcheck-py/shellcheck-py
     rev: v0.7.1.1
     hooks:
@@ -112,6 +106,16 @@ repos:
       - id: docker-compose-check
   - repo: local
     hooks:
+      - id: prettier
+        name: prettier
+        language: system
+        entry: ./node_modules/prettier/bin-prettier.js
+        args:
+          - '--write=true'
+          - '--list-different'
+          - '--config=prettier.config.js'
+        files: \.(js?(on)|ts?(x)|scss|md|y?(a)ml|graphql|less)$
+        exclude: lib|node_modules
       - id: eslint
         name: eslint
         language: system
