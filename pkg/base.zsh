@@ -96,7 +96,8 @@ function cleanup::unnecesary {
          -name 'env.back' -type d -print -exec rm -rf {} + -o \
          -name 'venv.back' -type d -print -exec rm -rf {} + -o \
          -name 'vendor' -type d -print -exec rm -rf {} + -o \
-         -name 'coverage' -type d -print -exec rm -rf {} +
+         -name 'coverage' -type d -print -exec rm -rf {} + -o \
+         -name '.external_modules' -type d -print -exec rm -rf {} +
     message_success "Clean files unnecesary"
 }
 
