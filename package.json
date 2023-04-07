@@ -45,7 +45,7 @@
     "eslint": "<=6.8.0",
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^6.0.0",
-    "lint-staged": "^13.2.0",
+    "lint-staged": "^13.2.1",
     "prettier": "^2.8.7",
     "prettier-tslint": "^0.4.2",
     "rimraf": "^4.4.1",
