@@ -25,7 +25,7 @@ In general, MRs are welcome. We follow the typical "fork-and-pull" [Git flow](./
 3. **Commit** changes to your own branch using [Git flow](./contribute/github-flow.md)
 4. **Push** your work back up to your fork
 
-5. Submit a **Pull Request** so that we can review your changes
+5.  Submit a **Pull Request** so that we can review your changes
 
 **NOTE:** Be sure to rebase the latest changes from "upstream" before making a pull request!
 

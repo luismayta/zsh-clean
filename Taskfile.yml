@@ -73,7 +73,7 @@ dotenv:
 
 vars:
   PROJECT_NAME: zsh-clean
-  ORGANIZATION: hadenlabs
+  ORGANIZATION: luismayta
   DOCKER_PLATFORM: linux/amd64
   REVIEWERS: luismayta
   PYTHON_VERSION: 3.11.5
