@@ -1,7 +1,7 @@
 #!/usr/bin/env ksh
 # -*- coding: utf-8 -*-
 
-function internal::main::factory {
+function clean::internal::main::factory {
     # shellcheck source=/dev/null
     source "${ZSH_CLEAN_PATH}"/internal/base.zsh
     case "${OSTYPE}" in
@@ -14,8 +14,8 @@ function internal::main::factory {
         source "${ZSH_CLEAN_PATH}"/internal/linux.zsh
       ;;
     esac
+    # shellcheck source=/dev/null
+    source "${ZSH_CLEAN_PATH}"/internal/helper.zsh
 }
 
-internal::main::factory
-
-if ! type -p rsync > /dev/null; then rync::install; fi
+clean::internal::main::factory

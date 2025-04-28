@@ -7,28 +7,28 @@
 
 ## Functions
 
-zsh goenv includes a small utility `goenv` to fetch and install new packages.
+zsh clean includes a small utility `clean` to fetch and install new packages.
 
-#### `goenv::install`
+#### `clean::install`
 
-Install goenv.
+Install clean.
 
-#### `goenv::load`
+#### `clean::load`
 
-Load path goenv.
+Load path clean.
 
-#### `goenv::upgrade`
+#### `clean::upgrade`
 
-Upgrade version goenv.
+Upgrade version clean.
 
-#### `goenv::package::all::install`
+#### `clean::package::all::install`
 
-Install all package of goenv.
+Install all package of clean.
 
-#### `goenv::install::versions`
+#### `clean::install::versions`
 
-Install versions of config for goenv.
+Install versions of config for clean.
 
-#### `goenv::install::version::global`
+#### `clean::install::version::global`
 
-Install a version global of goenv.
+Install a version global of clean.

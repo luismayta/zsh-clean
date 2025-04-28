@@ -8,7 +8,7 @@
 <!-- Include: ./../disclaimer.md -->
 <!-- Include: ac:toc -->
 
-To contribute to zsh-clean project on [GitHub](https://github.com/hadenlabs/zsh-clean), We use [GitHub Flow](https://githubflow.github.io/), it means that you should branch from the main repository and contribute back by making [pull request](https://github.com/hadenlabs/zsh-clean/pulls).
+To contribute to zsh-clean project on [GitHub](https://github.com/luismayta/zsh-clean), We use [GitHub Flow](https://githubflow.github.io/), it means that you should branch from the main repository and contribute back by making [pull request](https://github.com/luismayta/zsh-clean/pulls).
 
 GitHub Flow is very lightweight (especially compared to GitFlow). This workflow uses only two kinds of branches:
 
@@ -31,10 +31,10 @@ To follow the instructions in this guide and start contributing to zsh-clean pro
 To synchronize with the main repository, add it to the remotes:
 
 ```bash
-git remote add upstream  https://github.com/hadenlabs/zsh-clean.git
+git remote add upstream  https://github.com/luismayta/zsh-clean.git
 ```
 
-Now your **upstream** points to **hadenlabs/zsh-clean**.
+Now your **upstream** points to **luismayta/zsh-clean**.
 
 ## Branches
 
@@ -58,7 +58,7 @@ To resolve a conflict, run the following commands.
 
 ```bash
 # checkout a branch you open PR from
-git fetch upstream # assuming upstream is hadenlabs/zsh-clean
+git fetch upstream # assuming upstream is luismayta/zsh-clean
 git merge upstream/merge_branch # Where merge_branch is a branch you open merge request against.
 # resolve merge requests
 git add changed_files
@@ -70,7 +70,7 @@ Github will automatically update your pull request.
 
 ### Testing
 
-All merge requests are automatically tested using [Github Actions](https://github.com/hadenlabs/zsh-clean/actions). In case some tests fail, fix the issues or describe why the fix cannot be done.
+All merge requests are automatically tested using [Github Actions](https://github.com/luismayta/zsh-clean/actions). In case some tests fail, fix the issues or describe why the fix cannot be done.
 
 ### Review
 
