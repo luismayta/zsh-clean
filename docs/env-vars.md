@@ -1,7 +1,7 @@
 <!-- Space: Projects -->
-<!-- Parent: ZshGoenv -->
-<!-- Title: EnvVars ZshGoenv -->
-<!-- Label: ZshGoenv -->
+<!-- Parent: ZshClean -->
+<!-- Title: EnvVars ZshClean -->
+<!-- Label: ZshClean -->
 <!-- Label: Project -->
 <!-- Label: EnvVars -->
 <!-- Include: disclaimer.md -->
@@ -10,3 +10,5 @@
 ---
 
 ## Env Vars
+
+### Application

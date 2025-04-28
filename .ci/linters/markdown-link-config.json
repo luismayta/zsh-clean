@@ -6,6 +6,9 @@
     },
     {
       "pattern": "^https://github.com/luismayta/zsh-clean/compare"
+    },
+    {
+      "pattern": "^mailto:.*@hadenlabs\\.com"
     }
   ],
   "replacementPatterns": [

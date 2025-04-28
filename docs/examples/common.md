@@ -1,8 +1,14 @@
 <!-- Space: Projects -->
-<!-- Parent: ZshGoenv -->
-<!-- Title: Examples ZshGoenv -->
+<!-- Parent: ZshClean -->
+<!-- Title: Examples ZshClean -->
 <!-- Label: Examples -->
 <!-- Include: ./../disclaimer.md -->
 <!-- Include: ac:toc -->
 
-### common
+## Common
+
+### Install Dependencies
+
+```bash
+task setup
+```

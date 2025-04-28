@@ -1,7 +1,7 @@
 <!-- Space: Projects -->
-<!-- Parent: ZshGoenv -->
-<!-- Title: Releasing ZshGoenv -->
-<!-- Label: ZshGoenv -->
+<!-- Parent: ZshClean -->
+<!-- Title: Releasing ZshClean -->
+<!-- Label: ZshClean -->
 <!-- Label: Project -->
 <!-- Label: Releasing -->
 <!-- Include: disclaimer.md -->

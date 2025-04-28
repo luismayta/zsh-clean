@@ -1,7 +1,7 @@
 <!-- Space: Projects -->
-<!-- Parent: Project -->
-<!-- Title: Installation Antibody ZshGoenv -->
-<!-- Label: ZshGoenv -->
+<!-- Parent: ZshClean -->
+<!-- Title: Installation Antibody ZshClean -->
+<!-- Label: ZshClean -->
 <!-- Label: Project -->
 <!-- Label: Installation -->
 <!-- Include: docs/disclaimer.md -->
@@ -11,7 +11,7 @@
 
 If you're using [Antibody](https://github.com/getantibody/antibody), install this plugin by doing the following:
 
-1.  Add :
+1. Add :
 
 ```{.sourceCode .bash}
 antibody bundle luismayta/zsh-clean

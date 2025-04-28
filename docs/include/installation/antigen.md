@@ -1,7 +1,7 @@
 <!-- Space: Projects -->
-<!-- Parent: Project -->
-<!-- Title: Installation Antigen ZshGoenv -->
-<!-- Label: ZshGoenv -->
+<!-- Parent: ZshClean -->
+<!-- Title: Installation Antigen ZshClean -->
+<!-- Label: ZshClean -->
 <!-- Label: Project -->
 <!-- Label: Installation -->
 <!-- Label: Antigen -->

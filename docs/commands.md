@@ -1,13 +1,15 @@
 <!-- Space: Projects -->
-<!-- Parent: ZshGoenv -->
-<!-- Title: Commands ZshGoenv -->
-<!-- Label: ZshGoenv -->
+<!-- Parent: ZshClean -->
+<!-- Title: Commands ZshClean -->
+<!-- Label: ZshClean -->
 <!-- Label: Project -->
 <!-- Label: Commands -->
 <!-- Include: disclaimer.md -->
 <!-- Include: ac:toc -->
 
 # Commands
+
+## Poetry
 
 ## Taskfile
 
@@ -16,7 +18,15 @@
 #### Sync Markdown with confluence
 
 ```{.bash}
-task mark:sync
+task confluence:sync:all
+```
+
+### Python
+
+#### Format syntax code python with [black](https://github.com/psf/black)
+
+```{.bash}
+task python:fmt -- {{file_name or path}}
 ```
 
 ### Diagrams
@@ -25,6 +35,14 @@ task mark:sync
 
 ```{.bash}
 task diagrams:publish
+```
+
+### Mkdocs
+
+#### Generate Website
+
+```{.bash}
+task docs:build
 ```
 
 ### Changelog
@@ -59,4 +77,18 @@ task version:minor
 
 ```{.bash}
 task version:patch
+```
+
+### Docs
+
+#### build
+
+```{.bash}
+task docs:build
+```
+
+#### server
+
+```{.bash}
+task docs:serve
 ```

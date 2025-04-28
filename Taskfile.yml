@@ -1,17 +1,56 @@
-version: '3'
+---
+version: "3"
 
 includes:
-  changelog: ./provision/task/changelog.yml
-  confluence: ./provision/task/confluence.yml
-  python: ./provision/task/python.yml
-  git: ./provision/task/git.yml
-  docs: ./provision/task/docs.yml
-  docker: ./provision/task/docker.yml
-  version: ./provision/task/version.yml
-  plantuml: ./provision/task/plantuml.yml
-  prettier: ./provision/task/prettier.yml
-  sonar: ./provision/task/sonar.yml
-  diagrams: ./provision/diagrams/Taskfile.yml
+
+  ansible:
+    taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/main/src/ansible/Taskfile.yml"
+  pre-commit:
+    taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/main/src/pre-commit/Taskfile.yml"
+  github:
+    taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/main/src/github/Taskfile.yml"
+  changelog:
+    taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/main/src/changelog/Taskfile.yml"
+  confluence:
+    taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/main/src/confluence/Taskfile.yml"
+  python:
+    taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/main/src/python/Taskfile.yml"
+  uv:
+    taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/main/src/uv/Taskfile.yml"
+  git:
+    taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/main/src/git/Taskfile.yml"
+  docs:
+    taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/main/src/docs/Taskfile.yml"
+  docker:
+    taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/main/src/docker/Taskfile.yml"
+  version:
+    taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/main/src/version/Taskfile.yml"
+  yarn:
+    taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/main/src/yarn/Taskfile.yml"
+  pnpm:
+    taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/main/src/pnpm/Taskfile.yml"
+  plantuml:
+    taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/main/src/plantuml/Taskfile.yml"
+  packer:
+    taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/main/src/packer/Taskfile.yml"
+  prettier:
+    taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/main/src/prettier/Taskfile.yml"
+  sonar:
+    taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/main/src/sonar/Taskfile.yml"
+  sops:
+    taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/main/src/sops/Taskfile.yml"
+  keybase:
+    taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/main/src/keybase/Taskfile.yml"
+  multipass:
+    taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/main/src/multipass/Taskfile.yml"
+  terraform:
+    taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/main/src/terraform/Taskfile.yml"
+  terragrunt:
+    taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/main/src/terragrunt/Taskfile.yml"
+  openssl:
+    taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/main/src/openssl/Taskfile.yml"
+  ssh:
+    taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/main/src/ssh/Taskfile.yml"
 
 env:
   DOCKER:
@@ -24,29 +63,43 @@ env:
     sh: node --version 2> /dev/null || echo "not exist"
   APP_TAG:
     sh: git describe --tags $(git rev-list --tags --max-count=1) 2> /dev/null || echo "0.0.0"
+  PYTHON_PACKAGE_MANAGER: uv
   README_YAML: provision/generators/README.yaml
   README_TEMPLATE: provision/templates/README.tpl.md
   README_INCLUDES: file://
+  TERRAFORM_PATH: ./
 
 dotenv:
   - .env
 
 vars:
   PROJECT_NAME: zsh-clean
-  ORGANIZATION: luismayta
+  ORGANIZATION: hadenlabs
+  DOCKER_PLATFORM: linux/amd64
   REVIEWERS: luismayta
-  PYTHON_VERSION: 3.9.2
-  NODE_VERSION: 16.6.1
-  GIT_IGNORES: python,node,go,zsh,sonar,linux
+  PYTHON_VERSION: 3.11.5
+  NODE_VERSION: v20.18.3
+  GIT_IGNORES: python,node,go,zsh,sonar,java,maven,intellij+all,terraform,linux
   GOLANGCI_VERSION: 1.42.0
+  TERRAFORM_VERSION: 1.11.4
   README_FILE: README.md
-  GIT_IGNORES_CUSTOM: >-
+  ANSIBLE_COLLECTIONS: |
+    community.sops
+  GIT_IGNORES_CUSTOM: |
     bin
     .scannerwork
     .secrets
+    public
     TMP_CHANGELOG.md
     .task
+    .terraform.lock.hcl
     *.lock.hcl
+    *.lock
+    *.zip
+    .external_modules
+    vendor
+    charts
+    .DS_Store
 
 tasks:
   default:
@@ -61,7 +114,7 @@ tasks:
     silent: true
 
   summary:
-    desc: 'Summary information'
+    desc: "Summary information"
     cmds:
       - echo Go available {{.GO}}
       - echo Python available {{.PYTHON}}
@@ -70,15 +123,14 @@ tasks:
     silent: true
 
   check:
-    desc: 'Check all dependencies'
+    desc: "Check all dependencies"
     deps:
-      - python:check
+      - uv:check
       - changelog:check
       - git:check
       - docs:check
 
   readme:
-    run: once
     desc: Generate Readme
     silent: true
     cmds:
@@ -90,21 +142,26 @@ tasks:
       - task: prettier
 
   prettier:
-    run: once
     desc: Execute prettier files
     cmds:
       - task: prettier:all
+
+  upgrade:
+    desc: Execute upgrade packages
+    cmds:
+      - uv update
+      - uv run pre-commit autoupdate
 
   setup:
     desc: Setup dependences of project
     cmds:
       - >-
         [ -e ".env" ] || cp -rf .env.example .env
-      - task: python:setup
-      - task: python:precommit
+      - task: uv:setup
+      - task: uv:precommit
       - task: git:setup
 
   environment:
     desc: Setup environment of project
     cmds:
-      - task: python:environment
+      - task: uv:environment

@@ -1,6 +1,6 @@
 <!-- Space: Projects -->
-<!-- Parent: ZshGoenv -->
-<!-- Title: Roadmap ZshGoenv -->
+<!-- Parent: ZshClean -->
+<!-- Title: Roadmap ZshClean -->
 <!-- Label: Roadmap -->
 <!-- Include: disclaimer.md -->
 <!-- Include: ac:toc -->
@@ -47,11 +47,3 @@ You can see the corresponding projects on [zsh-clean](https://github.com/luismay
 ### October 2021
 
 ### November 2021
-
-### December 2021
-
-## Long Lived Initiatives
-
-These projects don't have an end date. They are something we'll continuously work towards.
-
-- [Better Docs](https://hadenlabs.atlassian.net/wiki)

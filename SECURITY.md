@@ -1,7 +1,7 @@
 <!-- Space: Projects -->
-<!-- Parent: ZshGoenv -->
-<!-- Title: Security ZshGoenv -->
-<!-- Label: ZshGoenv -->
+<!-- Parent: ZshClean -->
+<!-- Title: Security ZshClean -->
+<!-- Label: ZshClean -->
 <!-- Label: Security -->
 <!-- Include: docs/disclaimer.md -->
 <!-- Include: ac:toc -->
