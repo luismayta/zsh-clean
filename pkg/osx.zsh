@@ -51,7 +51,7 @@ function cleanup::xcode {
 
 function cleanup::all {
     message_info "Clean all files"
-    cleanup::unnecesary
+    cleanup::unnecessary
     cleanup::yarn
     cleanup::brew
     cleanup::system::trash

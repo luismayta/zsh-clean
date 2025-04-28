@@ -1,5 +1,25 @@
 #!/usr/bin/env ksh
 # -*- coding: utf-8 -*-
+#
+function cleanup::all {
+    message_info "Clean all files"
+    cleanup::unnecessary
+    cleanup::yarn
+    cleanup::brew
+    cleanup::system::trash
+    cleanup::system::logs
+    cleanup::pip
+    cleanup::gem
+    cleanup::docker
+    cleanup::pre_commit
+    cleanup::pyenv
+    cleanup::pyenv::virtualenvs
+    cleanup::npm
+    cleanup::terraform
+    cleanup::projects
+    cleanup::tasks
+    message_success "Finish all files"
+}
 
 function cleanup::pip {
     message_info "Cleanup pip cache..."
@@ -31,6 +51,15 @@ function cleanup::pre_commit {
         rm -rfv "${PRE_COMMIT_PATH}" > /dev/null 2>&1
         message_success "Removing pre_commit..."
     fi
+}
+
+function cleanup::tasks {
+    message_info "Clean tasks files generated"
+    find . \
+         -name '.task' -type d -print -exec rm -rf {} +
+
+    message_success "Clean files tasks"
+
 }
 
 function cleanup::pyenv {
@@ -76,8 +105,8 @@ function cleanup::brew {
     fi
 }
 
-function cleanup::unnecesary {
-    message_info "Clean files unnecesary"
+function cleanup::unnecessary {
+    message_info "Clean files unnecessary"
     find . \
          -name '.DS_Store' -delete -print -o \
          -name '*.pyc' -delete -print -o \
@@ -95,10 +124,12 @@ function cleanup::unnecesary {
          -name '__pycache__' -type d -print -exec rm -rf {} + -o \
          -name 'env.back' -type d -print -exec rm -rf {} + -o \
          -name 'venv.back' -type d -print -exec rm -rf {} + -o \
+         -name 'venv' -type d -print -exec rm -rf {} + -o \
          -name 'vendor' -type d -print -exec rm -rf {} + -o \
          -name 'coverage' -type d -print -exec rm -rf {} + -o \
-         -name '.external_modules' -type d -print -exec rm -rf {} +
-    message_success "Clean files unnecesary"
+         -name '.external_modules' -type d -print -exec rm -rf {} + \
+         -name '.task' -type d -print -exec rm -rf {} +
+    message_success "Clean files unnecessary"
 }
 
 # clean files and path
@@ -107,7 +138,7 @@ function cleanup::terraform {
     find . \
          -name '.terraform' -type d -print -exec rm -rf {} +
 
-    message_success "Clean files unnecesary"
+    message_success "Clean files unnecessary"
 }
 
 function cleanup {
@@ -147,7 +178,7 @@ function cleanup {
 
     message_success "Clean files generated"
 
-    cleanup::unnecesary
+    cleanup::unnecessary
 }
 
 # clean files and path
@@ -157,7 +188,7 @@ function cleanup::projects {
         return
     fi
     message_info "Clean files of ${PROJECTS}"
-    cd "${ROJECTS}" || return && cleanup || cd - || return
+    cd "${PROJECTS}" || return && cleanup || cd - || return
 
-    message_success "Clean files unnecesary"
+    message_success "Clean files unnecessary"
 }
