@@ -30,9 +30,9 @@ This is a list of plugins that need to be installed previously to enjoy all the 
 ## Installation
 
 <!-- Space: Projects -->
-<!-- Parent: Project -->
-<!-- Title: Installation Oh-My-Zsh ZshGoenv -->
-<!-- Label: ZshGoenv -->
+<!-- Parent: ZshClean -->
+<!-- Title: Installation Oh-My-Zsh ZshClean -->
+<!-- Label: ZshClean -->
 <!-- Label: Project -->
 <!-- Label: Installation -->
 <!-- Label: Oh-My-Zsh -->
@@ -48,9 +48,9 @@ If you're using [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh), install this pl
 3.  Edit your `.zshrc` and add `plugins=( ... zsh-clean )` to your list of plugins
 4.  Open a new terminal and enjoy!
     <!-- Space: Projects -->
-    <!-- Parent: Project -->
-    <!-- Title: Installation Antigen ZshGoenv -->
-    <!-- Label: ZshGoenv -->
+    <!-- Parent: ZshClean -->
+    <!-- Title: Installation Antigen ZshClean -->
+    <!-- Label: ZshClean -->
     <!-- Label: Project -->
     <!-- Label: Installation -->
     <!-- Label: Antigen -->
@@ -65,9 +65,9 @@ If you're using [Antigen](https://github.com/zsh-users/antigen), install this pl
 2.  Either open a new terminal to force zsh to load the new plugin, or run `antigen bundle luismayta/zsh-clean` in a running zsh session.
 3.  Enjoy!
     <!-- Space: Projects -->
-    <!-- Parent: Project -->
-    <!-- Title: Installation Antibody ZshGoenv -->
-    <!-- Label: ZshGoenv -->
+    <!-- Parent: ZshClean -->
+    <!-- Title: Installation Antibody ZshClean -->
+    <!-- Label: ZshClean -->
     <!-- Label: Project -->
     <!-- Label: Installation -->
     <!-- Include: docs/disclaimer.md -->
@@ -77,7 +77,7 @@ If you're using [Antigen](https://github.com/zsh-users/antigen), install this pl
 
 If you're using [Antibody](https://github.com/getantibody/antibody), install this plugin by doing the following:
 
-1.  Add :
+1. Add :
 
 ```{.sourceCode .bash}
 antibody bundle luismayta/zsh-clean
@@ -99,48 +99,54 @@ task setup
 ## Examples
 
 <!-- Space: Projects -->
-<!-- Parent: ZshGoenv -->
-<!-- Title: Examples ZshGoenv -->
+<!-- Parent: ZshClean -->
+<!-- Title: Examples ZshClean -->
 <!-- Label: Examples -->
 <!-- Include: ./../disclaimer.md -->
 <!-- Include: ac:toc -->
 
-### common
+## Common
+
+### Install Dependencies
+
+```bash
+task setup
+```
 
  <!-- Space: Projects -->
-<!-- Parent: Project -->
-<!-- Title: Functions -->
+<!-- Parent: ZshClean -->
+<!-- Title: Functions ZshClean -->
 <!-- Label: Functions -->
 <!-- Include: docs/disclaimer.md -->
 <!-- Include: ac:toc -->
 
 ## Functions
 
-zsh goenv includes a small utility `goenv` to fetch and install new packages.
+zsh clean includes a small utility `clean` to fetch and install new packages.
 
-#### `goenv::install`
+#### `clean::install`
 
-Install goenv.
+Install clean.
 
-#### `goenv::load`
+#### `clean::load`
 
-Load path goenv.
+Load path clean.
 
-#### `goenv::upgrade`
+#### `clean::upgrade`
 
-Upgrade version goenv.
+Upgrade version clean.
 
-#### `goenv::package::all::install`
+#### `clean::package::all::install`
 
-Install all package of goenv.
+Install all package of clean.
 
-#### `goenv::install::versions`
+#### `clean::install::versions`
 
-Install versions of config for goenv.
+Install versions of config for clean.
 
-#### `goenv::install::version::global`
+#### `clean::install::version::global`
 
-Install a version global of goenv.
+Install a version global of clean.
 
 ## Help
 
@@ -169,7 +175,7 @@ Using the given version number of `MAJOR.MINOR.PATCH`, we apply the following co
 
 ## Copyright
 
-Copyright © 2018-2022 [Hadenlabs](https://hadenlabs.com)
+Copyright © 2018-2025 [Hadenlabs](https://hadenlabs.com)
 
 ## Trademarks
 
