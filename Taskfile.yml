@@ -2,7 +2,6 @@
 version: "3"
 
 includes:
-
   ansible:
     taskfile: "https://raw.githubusercontent.com/hadenlabs/tasks/main/src/ansible/Taskfile.yml"
   pre-commit:

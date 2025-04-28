@@ -3,7 +3,7 @@
 project_name: zsh-clean
 env:
   - GO111MODULE=on
-  - REPO=github.com/hadenlabs/zsh-clean
+  - REPO=github.com/luismayta/zsh-clean
 before:
   hooks:
     - go mod download
