@@ -174,6 +174,7 @@ function cleanup {
          -name '.fusebox' -type d -print -exec rm -rf {} + -o \
          -name '.dynamodb' -type d -print -exec rm -rf {} + -o \
          -name 'bower_components' -type d -print -exec rm -rf {} + -o \
+         -name '.task' -type d -print -exec rm -rf {} + -o \
          -name 'coverage' -type d -print -exec rm -rf {} +
 
     message_success "Clean files generated"
